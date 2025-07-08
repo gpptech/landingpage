@@ -1,120 +1,148 @@
 // ========================================
+// DETECÇÃO DE DISPOSITIVO MÓVEL
+// ========================================
+function isMobileDevice() {
+    return (window.innerWidth <= 768) || 
+           ('ontouchstart' in window) ||
+           (navigator.maxTouchPoints > 0);
+}
+
+// ========================================
 // CONFIGURAÇÃO DO PARTICLES.JS
 // ========================================
-// Cria um efeito de partículas animadas no fundo da página
-particlesJS('particles-js', {
-    particles: {
-        // Configuração do número de partículas
-        number: {
-            value: 40, // Quantidade de partículas (range: 0-200, recomendado: 40-100)
-            density: {
-                enable: true, // Opções: true/false - Habilita/desabilita densidade responsiva
-                value_area: 1000 // Área de densidade (range: 400-2000, maior = partículas mais espaçadas)
-            }
-        },
-        // Cor das partículas (usa a cor dourada definida no CSS)
-        color: {
-            value: getComputedStyle(document.documentElement).getPropertyValue('--js-gold').trim() // Opções: qualquer cor CSS válida
-        },
-        // Forma das partículas
-        shape: {
-            type: 'circle', // Opções: 'circle', 'edge', 'triangle', 'polygon', 'star', 'image'
-            stroke: {
-                width: 0, // Largura da borda (range: 0-20)
-                color: getComputedStyle(document.documentElement).getPropertyValue('--js-black').trim() // Opções: qualquer cor CSS válida
-            }
-        },
-        // Transparência das partículas
-        opacity: {
-            value: 0.5, // Opacidade base (range: 0-1, onde 0 = transparente, 1 = sólido)
-            random: false, // Opções: true/false - Opacidade aleatória
-            anim: {
-                enable: false, // Opções: true/false - Animar opacidade
-                speed: 1, // Velocidade da animação (range: 0-10)
-                opacity_min: 0.1, // Opacidade mínima (range: 0-1)
-                sync: false // Opções: true/false - Sincronizar animação entre partículas
-            }
-        },
-        // Tamanho das partículas
-        size: {
-            value: 3, // Tamanho base em pixels (range: 0-200)
-            random: true, // Opções: true/false - Tamanho aleatório
-            anim: {
-                enable: false, // Opções: true/false - Animar tamanho
-                speed: 100,  // Velocidade da animação (range: 0-100)
-                size_min: 0.1, // Tamanho mínimo (range: 0-200)
-                sync: false // Opções: true/false - Sincronizar animação entre partículas
-            }
-        },
-        // Linhas que conectam as partículas
-        line_linked: {
-            enable: true, // Opções: true/false - Habilita/desabilita linhas
-            distance: 200, // Distância máxima para conectar (range: 0-800)
-            color: getComputedStyle(document.documentElement).getPropertyValue('--js-gold').trim(), // Opções: qualquer cor CSS válida
-            opacity: 0.4, // Opacidade das linhas (range: 0-1)
-            width: 1 // Espessura da linha em pixels (range: 0-20)
-        },
-        // Movimento das partículas
-        move: {
-            enable: true, // Opções: true/false - Habilita/desabilita movimento
-            speed: 3, // Velocidade do movimento (range: 0-50)
-            direction: 'none', // Opções: 'none', 'top', 'top-right', 'right', 'bottom-right', 'bottom', 'bottom-left', 'left', 'top-left'
-            random: true, // Opções: true/false - Movimento aleatório
-            straight: false, // Opções: true/false - Movimento em linha reta
-            out_mode: 'out', // Opções: 'out' (sai da tela), 'bounce' (quica nas bordas)
-            bounce: false, // Opções: true/false - Quicar nas bordas
-            attract: {
-                enable: true, // Opções: true/false - Atração entre partículas
-                rotateX: 600, // Força de rotação X (range: 0-3000)
-                rotateY: 1200 // Força de rotação Y (range: 0-3000)
-            }
-        }
-    },
-    // Configurações de interatividade
-    interactivity: {
-        detect_on: 'window', // Opções: 'canvas', 'window' - Onde detectar interações
-        events: {
-            // Efeito ao passar o mouse
-            onhover: {
-                enable: true, // Opções: true/false - Habilita/desabilita efeito hover
-                mode: 'bubble' // Opções: 'grab', 'bubble', 'repulse', 'none'
-            },
-            // Efeito ao clicar
-            onclick: {
-                enable: true, // Opções: true/false - Habilita/desabilita efeito de clique
-                mode: 'push' // Opções: 'push', 'remove', 'bubble', 'repulse'
-            },
-            resize: true // Opções: true/false - Responde ao redimensionamento da janela
-        },
-        // Diferentes modos de interação
-        modes: {
-            grab: {
-                distance: 400, // Distância de interação (range: 0-1000)
-                line_linked: {
-                    opacity: 1 // Opacidade das linhas ao agarrar (range: 0-1)
+// Cria um efeito de partículas animadas no fundo da página apenas em desktop
+if (!isMobileDevice()) {
+    particlesJS('particles-js', {
+        particles: {
+            // Configuração do número de partículas
+            number: {
+                value: 40, // Quantidade de partículas (range: 0-200, recomendado: 40-100)
+                density: {
+                    enable: true, // Opções: true/false - Habilita/desabilita densidade responsiva
+                    value_area: 1000 // Área de densidade (range: 400-2000, maior = partículas mais espaçadas)
                 }
             },
-            bubble: {
-                distance: 40, // Distância do efeito bolha (range: 0-1000)
-                size: 4, // Tamanho da bolha (range: 0-200)
-                duration: 2, // Duração do efeito em segundos (range: 0-10)
-                opacity: 8, // Opacidade da bolha (range: 0-1)
-                speed: 3 // Velocidade da animação (range: 0-10)
+            // Cor das partículas (usa a cor dourada definida no CSS)
+            color: {
+                value: getComputedStyle(document.documentElement).getPropertyValue('--js-gold').trim() // Opções: qualquer cor CSS válida
             },
-            repulse: {
-                distance: 200, // Distância de repulsão (range: 0-1000)
-                duration: 0.4 // Duração da repulsão em segundos (range: 0-10)
+            // Forma das partículas
+            shape: {
+                type: 'circle', // Opções: 'circle', 'edge', 'triangle', 'polygon', 'star', 'image'
+                stroke: {
+                    width: 0, // Largura da borda (range: 0-20)
+                    color: getComputedStyle(document.documentElement).getPropertyValue('--js-black').trim() // Opções: qualquer cor CSS válida
+                }
             },
-            push: {
-                particles_nb: 1 // Número de partículas adicionadas (range: 0-20)
+            // Transparência das partículas
+            opacity: {
+                value: 0.5, // Opacidade base (range: 0-1, onde 0 = transparente, 1 = sólido)
+                random: false, // Opções: true/false - Opacidade aleatória
+                anim: {
+                    enable: false, // Opções: true/false - Animar opacidade
+                    speed: 1, // Velocidade da animação (range: 0-10)
+                    opacity_min: 0.1, // Opacidade mínima (range: 0-1)
+                    sync: false // Opções: true/false - Sincronizar animação entre partículas
+                }
             },
-            remove: {
-                particles_nb: 2 // Número de partículas removidas (range: 0-20)
+            // Tamanho das partículas
+            size: {
+                value: 3, // Tamanho base em pixels (range: 0-200)
+                random: true, // Opções: true/false - Tamanho aleatório
+                anim: {
+                    enable: false, // Opções: true/false - Animar tamanho
+                    speed: 100,  // Velocidade da animação (range: 0-100)
+                    size_min: 0.1, // Tamanho mínimo (range: 0-200)
+                    sync: false // Opções: true/false - Sincronizar animação entre partículas
+                }
+            },
+            // Linhas que conectam as partículas
+            line_linked: {
+                enable: true, // Opções: true/false - Habilita/desabilita linhas
+                distance: 200, // Distância máxima para conectar (range: 0-800)
+                color: getComputedStyle(document.documentElement).getPropertyValue('--js-gold').trim(), // Opções: qualquer cor CSS válida
+                opacity: 0.4, // Opacidade das linhas (range: 0-1)
+                width: 1 // Espessura da linha em pixels (range: 0-20)
+            },
+            // Movimento das partículas
+            move: {
+                enable: true, // Opções: true/false - Habilita/desabilita movimento
+                speed: 3, // Velocidade do movimento (range: 0-50)
+                direction: 'none', // Opções: 'none', 'top', 'top-right', 'right', 'bottom-right', 'bottom', 'bottom-left', 'left', 'top-left'
+                random: true, // Opções: true/false - Movimento aleatório
+                straight: false, // Opções: true/false - Movimento em linha reta
+                out_mode: 'out', // Opções: 'out' (sai da tela), 'bounce' (quica nas bordas)
+                bounce: false, // Opções: true/false - Quicar nas bordas
+                attract: {
+                    enable: true, // Opções: true/false - Atração entre partículas
+                    rotateX: 600, // Força de rotação X (range: 0-3000)
+                    rotateY: 1200 // Força de rotação Y (range: 0-3000)
+                }
             }
-        }
-    },
-    retina_detect: true // Opções: true/false - Detecta telas de alta resolução
-});
+        },
+        // Configurações de interatividade
+        interactivity: {
+            detect_on: 'window', // Opções: 'canvas', 'window' - Onde detectar interações
+            events: {
+                // Efeito ao passar o mouse
+                onhover: {
+                    enable: true, // Opções: true/false - Habilita/desabilita efeito hover
+                    mode: 'bubble' // Opções: 'grab', 'bubble', 'repulse', 'none'
+                },
+                // Efeito ao clicar
+                onclick: {
+                    enable: true, // Opções: true/false - Habilita/desabilita efeito de clique
+                    mode: 'push' // Opções: 'push', 'remove', 'bubble', 'repulse'
+                },
+                resize: true // Opções: true/false - Responde ao redimensionamento da janela
+            },
+            // Diferentes modos de interação
+            modes: {
+                grab: {
+                    distance: 400, // Distância de interação (range: 0-1000)
+                    line_linked: {
+                        opacity: 1 // Opacidade das linhas ao agarrar (range: 0-1)
+                    }
+                },
+                bubble: {
+                    distance: 40, // Distância do efeito bolha (range: 0-1000)
+                    size: 4, // Tamanho da bolha (range: 0-200)
+                    duration: 2, // Duração do efeito em segundos (range: 0-10)
+                    opacity: 8, // Opacidade da bolha (range: 0-1)
+                    speed: 3 // Velocidade da animação (range: 0-10)
+                },
+                repulse: {
+                    distance: 200, // Distância de repulsão (range: 0-1000)
+                    duration: 0.4 // Duração da repulsão em segundos (range: 0-10)
+                },
+                push: {
+                    particles_nb: 1 // Número de partículas adicionadas (range: 0-20)
+                },
+                remove: {
+                    particles_nb: 2 // Número de partículas removidas (range: 0-20)
+                }
+            }
+        },
+        retina_detect: true // Opções: true/false - Detecta telas de alta resolução
+    });
+} else {
+    // Remove o container de partículas em dispositivos móveis
+    const particlesContainer = document.getElementById('particles-js');
+    if (particlesContainer) {
+        particlesContainer.remove();
+    }
+}
+
+// ========================================
+// ROLAGEM PARA O TOPO AO CARREGAR A PÁGINA
+// ========================================
+window.onload = () => {
+    // Rola a página para o topo com animação suave
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+};
 
 // ========================================
 // ROLAGEM SUAVE PARA LINKS DE NAVEGAÇÃO
@@ -184,79 +212,83 @@ document.addEventListener('DOMContentLoaded', () => {
 // ========================================
 // EFEITOS DE HOVER MELHORADOS PARA CARDS DE SERVIÇO
 // ========================================
-// Adiciona efeitos interativos aos cards de serviço
-document.querySelectorAll('.service-card').forEach(card => {
-    // Efeito quando o mouse entra no card
-    card.addEventListener('mouseenter', function() {
-        // Eleva o card e aumenta ligeiramente (translateY range: -20px a 0px, scale range: 1-1.5)
-        this.style.transform = 'translateY(-10px) scale(1.02)';
-        this.style.boxShadow = '0 20px 40px rgba(255, 215, 0, 0.2)'; // Opacidade da sombra (range: 0-1)
+// Adiciona efeitos interativos aos cards de serviço apenas em desktop
+if (!isMobileDevice()) {
+    document.querySelectorAll('.service-card').forEach(card => {
+        // Efeito quando o mouse entra no card
+        card.addEventListener('mouseenter', function() {
+            // Eleva o card e aumenta ligeiramente (translateY range: -20px a 0px, scale range: 1-1.5)
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+            this.style.boxShadow = '0 20px 40px rgba(255, 215, 0, 0.2)'; // Opacidade da sombra (range: 0-1)
+            
+            // Anima o ícone do serviço (scale range: 1-2, rotate range: 0-360deg)
+            const icon = this.querySelector('.service-icon');
+            icon.style.transform = 'scale(1.1) rotate(5deg)';
+            
+            // Anima as tags de características com delay
+            const tags = this.querySelectorAll('.feature-tag');
+            tags.forEach((tag, index) => {
+                setTimeout(() => {
+                    tag.style.transform = 'scale(1.05)'; // Scale range: 1-1.5
+                    tag.style.background = getComputedStyle(document.documentElement).getPropertyValue('--js-gold').trim(); // Opções: qualquer cor CSS válida
+                    tag.style.color = getComputedStyle(document.documentElement).getPropertyValue('--js-black').trim(); // Opções: qualquer cor CSS válida
+                }, index * 100); // Delay entre cada tag (range: 50-200ms)
+            });
+        });
         
-        // Anima o ícone do serviço (scale range: 1-2, rotate range: 0-360deg)
-        const icon = this.querySelector('.service-icon');
-        icon.style.transform = 'scale(1.1) rotate(5deg)';
-        
-        // Anima as tags de características com delay
-        const tags = this.querySelectorAll('.feature-tag');
-        tags.forEach((tag, index) => {
-            setTimeout(() => {
-                tag.style.transform = 'scale(1.05)'; // Scale range: 1-1.5
-                tag.style.background = getComputedStyle(document.documentElement).getPropertyValue('--js-gold').trim(); // Opções: qualquer cor CSS válida
-                tag.style.color = getComputedStyle(document.documentElement).getPropertyValue('--js-black').trim(); // Opções: qualquer cor CSS válida
-            }, index * 100); // Delay entre cada tag (range: 50-200ms)
+        // Efeito quando o mouse sai do card
+        card.addEventListener('mouseleave', function() {
+            // Volta à posição e tamanho original
+            this.style.transform = 'translateY(0) scale(1)';
+            this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.5)'; // Sombra normal
+            
+            // Reseta o ícone
+            const icon = this.querySelector('.service-icon');
+            icon.style.transform = 'scale(1) rotate(0deg)';
+            
+            // Reseta as tags de características
+            const tags = this.querySelectorAll('.feature-tag');
+            tags.forEach(tag => {
+                tag.style.transform = 'scale(1)';
+                // Volta às cores originais
+                tag.style.background = getComputedStyle(document.documentElement).getPropertyValue('--js-dark-gray').trim();
+                tag.style.color = getComputedStyle(document.documentElement).getPropertyValue('--js-gold').trim();
+            });
         });
     });
-    
-    // Efeito quando o mouse sai do card
-    card.addEventListener('mouseleave', function() {
-        // Volta à posição e tamanho original
-        this.style.transform = 'translateY(0) scale(1)';
-        this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.5)'; // Sombra normal
-        
-        // Reseta o ícone
-        const icon = this.querySelector('.service-icon');
-        icon.style.transform = 'scale(1) rotate(0deg)';
-        
-        // Reseta as tags de características
-        const tags = this.querySelectorAll('.feature-tag');
-        tags.forEach(tag => {
-            tag.style.transform = 'scale(1)';
-            // Volta às cores originais
-            tag.style.background = getComputedStyle(document.documentElement).getPropertyValue('--js-dark-gray').trim();
-            tag.style.color = getComputedStyle(document.documentElement).getPropertyValue('--js-gold').trim();
-        });
-    });
-});
+}
 
 // ========================================
 // EFEITOS DE HOVER MELHORADOS PARA ITENS DE CONTATO
 // ========================================
-// Adiciona efeitos interativos aos itens de contato
-document.querySelectorAll('.contact-item').forEach(item => {
-    // Efeito quando o mouse entra no item
-    item.addEventListener('mouseenter', function() {
-        // Move o item para cima e para a direita
-        this.style.transform = 'translateY(-5px) translateX(10px)';
-        this.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--js-gold').trim(); // Borda dourada
-        this.style.boxShadow = '0 0 20px rgba(255, 215, 0, 0.3)'; // Sombra dourada
+// Adiciona efeitos interativos aos itens de contato apenas em desktop
+if (!isMobileDevice()) {
+    document.querySelectorAll('.contact-item').forEach(item => {
+        // Efeito quando o mouse entra no item
+        item.addEventListener('mouseenter', function() {
+            // Move o item para cima e para a direita
+            this.style.transform = 'translateY(-5px) translateX(10px)';
+            this.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--js-gold').trim(); // Borda dourada
+            this.style.boxShadow = '0 0 20px rgba(255, 215, 0, 0.3)'; // Sombra dourada
+            
+            // Anima o ícone de contato
+            const icon = this.querySelector('.contact-icon');
+            icon.style.transform = 'scale(1.1) rotate(10deg)'; // Aumenta e gira
+        });
         
-        // Anima o ícone de contato
-        const icon = this.querySelector('.contact-icon');
-        icon.style.transform = 'scale(1.1) rotate(10deg)'; // Aumenta e gira
+        // Efeito quando o mouse sai do item
+        item.addEventListener('mouseleave', function() {
+            // Volta à posição original
+            this.style.transform = 'translateY(0) translateX(0)';
+            this.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--js-dark-gray').trim(); // Borda original
+            this.style.boxShadow = 'none';
+            
+            // Reseta o ícone
+            const icon = this.querySelector('.contact-icon');
+            icon.style.transform = 'scale(1) rotate(0deg)';
+        });
     });
-    
-    // Efeito quando o mouse sai do item
-    item.addEventListener('mouseleave', function() {
-        // Volta à posição original
-        this.style.transform = 'translateY(0) translateX(0)';
-        this.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--js-dark-gray').trim(); // Borda original
-        this.style.boxShadow = 'none';
-        
-        // Reseta o ícone
-        const icon = this.querySelector('.contact-icon');
-        icon.style.transform = 'scale(1) rotate(0deg)';
-    });
-});
+}
 
 // ========================================
 // EFEITOS DE HOVER MELHORADOS PARA ITENS DE ETAPAS
@@ -538,4 +570,183 @@ activeStyle.textContent = `
     }
 `;
 document.head.appendChild(activeStyle);
+
+// ========================================
+// FÍSICA DOS CARDS FLUTUANTES
+// ========================================
+
+// Inicializa o motor de física
+const engine = Matter.Engine.create({
+    enableSleeping: false,
+    constraintIterations: 4,
+    velocityIterations: 8,
+    positionIterations: 8
+});
+
+const world = engine.world;
+engine.gravity.y = 0; // Remove a gravidade
+
+// Configurações
+const CARD_WIDTH = 100;
+const CARD_HEIGHT = 100;
+const WALL_THICKNESS = 1;
+const ATTRACTION_STRENGTH = 0.001; // Força de atração do mouse (0.001 - 0.01)
+const REPULSION_STRENGTH = 0.0; // Não usado mais
+const FRICTION = 0; // Sem fricção de ar para manter movimento contínuo
+const BOUNCE = 0.5; // Elasticidade das colisões (0.1 - 0.9)
+const MAX_VELOCITY = 0.5; // Velocidade máxima dos cards (0.1 - 1.0)
+const ORBIT_STRENGTH = 0.1; // Força da órbita
+const ORBIT_SPEED = 0.0002; // Velocidade da rotação
+
+// Obtém o container e suas dimensões
+const container = document.getElementById('cards-container');
+const containerRect = container.getBoundingClientRect();
+
+// Dimensões reais do container (sem margem extra) para evitar overflow
+const CANVAS_WIDTH = containerRect.width;
+const CANVAS_HEIGHT = containerRect.height;
+
+// Calcula o raio da órbita proporcional ao container (30% do menor lado)
+const ORBIT_RADIUS = Math.min(CANVAS_WIDTH, CANVAS_HEIGHT) * 0.1;
+
+// Define o centro da órbita
+const orbitCenter = {
+    x: CANVAS_WIDTH / 2,
+    y: CANVAS_HEIGHT / 2
+};
+
+// Cria as paredes invisíveis alinhadas exatamente ao container
+const walls = [
+    Matter.Bodies.rectangle(CANVAS_WIDTH / 2, -WALL_THICKNESS / 2, CANVAS_WIDTH, WALL_THICKNESS, { isStatic: true }), // Topo
+    Matter.Bodies.rectangle(CANVAS_WIDTH / 2, CANVAS_HEIGHT + WALL_THICKNESS / 2, CANVAS_WIDTH, WALL_THICKNESS, { isStatic: true }), // Base
+    Matter.Bodies.rectangle(-WALL_THICKNESS / 2, CANVAS_HEIGHT / 2, WALL_THICKNESS, CANVAS_HEIGHT, { isStatic: true }), // Esquerda
+    Matter.Bodies.rectangle(CANVAS_WIDTH + WALL_THICKNESS / 2, CANVAS_HEIGHT / 2, WALL_THICKNESS, CANVAS_HEIGHT, { isStatic: true }) // Direita
+];
+
+Matter.World.add(world, walls);
+
+// Cria os corpos físicos para os cards
+const cards = Array.from(document.querySelectorAll('.floating-card')).map(card => {
+    // Calcula uma posição inicial mais próxima ao centro
+    // Usa apenas 60% da área central do container
+    const margin = 0.2; // 20% de margem de cada lado
+    const x = (margin * CANVAS_WIDTH) + (Math.random() * (CANVAS_WIDTH * (1 - 2 * margin)));
+    const y = (margin * CANVAS_HEIGHT) + (Math.random() * (CANVAS_HEIGHT * (1 - 2 * margin)));
+    
+    const body = Matter.Bodies.rectangle(x + CARD_WIDTH/2, y + CARD_HEIGHT/2, CARD_WIDTH, CARD_HEIGHT, {
+        frictionAir: FRICTION,
+        restitution: BOUNCE,
+        mass: 1,
+        inertia: Infinity,
+        friction: 0,
+        frictionStatic: 0
+    });
+
+    // Associa o elemento DOM ao corpo físico
+    body.element = card;
+    card.body = body;
+    
+    // Atribui uma velocidade inicial aleatória mais suave
+    Matter.Body.setVelocity(body, {
+        x: (Math.random() - 0.5) * 1, // Reduzido para movimento inicial mais suave
+        y: (Math.random() - 0.5) * 1
+    });
+    
+    return body;
+});
+
+Matter.World.add(world, cards);
+
+// Função para limitar a velocidade dos cards
+function limitVelocity(body) {
+    const velocity = Matter.Vector.magnitude(body.velocity);
+    if (velocity > MAX_VELOCITY) {
+        const factor = MAX_VELOCITY / velocity;
+        Matter.Body.setVelocity(body, {
+            x: body.velocity.x * factor,
+            y: body.velocity.y * factor
+        });
+    }
+}
+
+// Função para aplicar pequenas forças aleatórias, mantendo os cards em movimento suave
+function applyForces() {
+    cards.forEach(card => {
+        const randomForce = {
+            x: (Math.random() - 0.5) * 0.00002, // Reduzido de 0.00005
+            y: (Math.random() - 0.5) * 0.00002  // Reduzido de 0.00005
+        };
+        Matter.Body.applyForce(card, card.position, randomForce);
+    });
+}
+
+// Loop de renderização
+Matter.Events.on(engine, 'beforeUpdate', () => {
+    applyForces();
+    
+    // Limita a velocidade dos cards
+    cards.forEach(card => {
+        limitVelocity(card);
+        
+        // Atualiza a posição do elemento DOM
+        const element = card.element;
+        element.style.transform = `translate(${card.position.x - CARD_WIDTH/2}px, ${card.position.y - CARD_HEIGHT/2}px)`;
+    });
+});
+
+// Inicia o motor de física
+Matter.Runner.run(engine);
+
+// Menu Hamburguer
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+});
+
+document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+}));
+
+// Melhorar touch na seção hero
+document.addEventListener('DOMContentLoaded', function() {
+    const hero = document.querySelector('.hero');
+    const heroContent = document.querySelector('.hero-content');
+    
+    // Prevenir propagação de eventos de touch na seção hero
+    hero.addEventListener('touchstart', function(e) {
+        if (!heroContent.contains(e.target)) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+    
+    hero.addEventListener('touchmove', function(e) {
+        if (!heroContent.contains(e.target)) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+});
+
+// Controle dos cards flutuantes
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.floating-card');
+    let isMobile = window.innerWidth <= 768;
+    
+    // Função para atualizar o estado mobile
+    function updateMobileState() {
+        isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+            // Remove as transformações em dispositivos móveis
+            cards.forEach(card => {
+                card.style.transform = 'none';
+            });
+        }
+    }
+
+    // Atualiza quando a janela é redimensionada
+    window.addEventListener('resize', updateMobileState);
+});
 
