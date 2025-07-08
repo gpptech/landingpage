@@ -11,7 +11,6 @@ Gabriel Pitta de Paula é um engenheiro pela USP, especialista em dados e soluç
 - **Desenvolvimento de Sistemas Personalizados:** Criação de softwares sob medida para automatizar e otimizar processos internos, como agendamentos, gestão de clientes, gestão de frotas, gestão de pessoas, entre outros, aumentando a eficiência operacional.
 - **Desenvolvimento de Chatbots com IA Personalizada:** Implementação de chatbots inteligentes e personalizados para melhorar o atendimento ao cliente, automatizar tarefas e proporcionar uma experiência interativa e eficiente.
 - **Consultoria em Dados:** Orientação estratégica para empresas que desejam extrair o máximo valor de seus dados, desde a coleta e organização até a análise e interpretação.
-- **Construção de Planilhas de Excel Avançadas:** Desenvolvimento de planilhas complexas e automatizadas para controle financeiro, gestão de projetos, análise de dados e diversas outras aplicações, otimizando a organização e o controle de informações.
 
 ## Como Trabalhamos: Nossa Metodologia
 

@@ -48,8 +48,7 @@ catalogo-web/
 3. **Sistemas Personalizados** - Software sob medida para automação
 4. **Chatbots com IA** - Chatbots inteligentes e personalizados
 5. **Consultoria em Dados** - Orientação estratégica para dados
-6. **Planilhas Excel Avançadas** - Planilhas complexas e automatizadas
-7. **Automações Diversas** - Integração entre redes sociais, workflows e WhatsApp
+6. **Automações Diversas** - Integração entre redes sociais, workflows e WhatsApp
 
 ## 🔧 Personalização Necessária
 
