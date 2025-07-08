@@ -1,0 +1,74 @@
+/* ========================================
+   VARIÁVEIS DE CORES - GP TECH WEBSITE
+   ======================================== */
+
+:root {
+    /* ===== CORES PRINCIPAIS ===== */
+    --primary-black: #0a0a0a;
+    --secondary-black: #1a1a1a;
+    --dark-gray: #2a2a2a;
+    --medium-gray: #404040;
+    --light-gray: #666666;
+    
+    /* ===== CORES DOURADAS ===== */
+    --gold: #CA9B09; /*#ffd700;*/
+    --gold-dark: #916B0F; /*#b8860b;*/
+    --gold-light: #FFD700; /*#ffed4e;*/
+    
+       
+    /* ===== CORES DE TEXTO ===== */
+    --white: #ffffff;
+    --text-light: #e0e0e0;
+    --text-muted: #a0a0a0;
+    
+    /* ===== GRADIENTES ===== */
+    --gradient-gold: linear-gradient(135deg, var(--gold), var(--gold-light), var(--gold-dark));
+    --gradient-dark: linear-gradient(135deg, var(--primary-black), var(--secondary-black), var(--dark-gray));
+    
+    /* ===== SOMBRAS ===== */
+    --shadow-gold: 0 0 20px rgba(255, 215, 0, 0.3);
+    --shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.5);
+    
+    /* ===== TRANSPARÊNCIAS ===== */
+    --navbar-bg: rgba(10, 10, 10, 0.95);
+    --navbar-bg-scrolled: rgba(10, 10, 10, 0.98);
+    --floating-card-bg: rgba(26, 26, 26, 0.8);
+    
+    /* ===== CORES PARA JAVASCRIPT ===== */
+    --js-gold: #CA9B09;
+    --js-black: #0a0a0a;
+    --js-dark-gray: #2a2a2a;
+}
+
+/* ===== TEMA ALTERNATIVO (DESCOMENTE PARA USAR) ===== */
+/*
+:root {
+    --primary-black: #1a1a2e;
+    --secondary-black: #16213e;
+    --dark-gray: #0f3460;
+    --medium-gray: #533483;
+    --light-gray: #e94560;
+    
+    --gold: #00d4ff;
+    --gold-dark: #0099cc;
+    --gold-light: #33e6ff;
+    
+    --white: #ffffff;
+    --text-light: #e0e0e0;
+    --text-muted: #a0a0a0;
+    
+    --gradient-gold: linear-gradient(135deg, var(--gold), var(--gold-light), var(--gold-dark));
+    --gradient-dark: linear-gradient(135deg, var(--primary-black), var(--secondary-black), var(--dark-gray));
+    
+    --shadow-gold: 0 0 20px rgba(0, 212, 255, 0.3);
+    --shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.5);
+    
+    --navbar-bg: rgba(26, 26, 46, 0.95);
+    --navbar-bg-scrolled: rgba(26, 26, 46, 0.98);
+    --floating-card-bg: rgba(22, 33, 62, 0.8);
+    
+    --js-gold: #00d4ff;
+    --js-black: #1a1a2e;
+    --js-dark-gray: #0f3460;
+}
+*/ 
